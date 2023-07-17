@@ -4,7 +4,11 @@ const DATA_SOURCE_URL = 'https://jsonplaceholder.typicode.com/todos'
 
 const API_KEY: string = process.env.API_KEY as string
 
-export async function GET() {
+export async function GET(request: Request) {
+  // if need search params
+  // const { searchParams } = new URL(request.url)
+  // const query = searchParams.get('q')
+
   const res = await fetch(DATA_SOURCE_URL)
   const todos: Todo[] = await res.json()
 
